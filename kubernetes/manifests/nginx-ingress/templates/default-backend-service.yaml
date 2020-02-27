@@ -8,8 +8,8 @@ metadata:
     chart: nginx-ingress-1.33.0
     component: "default-backend"
     heritage: Helm
-    release: RELEASE-NAME
-  name: RELEASE-NAME-nginx-ingress-default-backend
+    release: default
+  name: default-nginx-ingress-default-backend
 spec:
   ports:
     - name: http
@@ -19,5 +19,5 @@ spec:
   selector:
     app: nginx-ingress
     component: "default-backend"
-    release: RELEASE-NAME
+    release: default
   type: "ClusterIP"

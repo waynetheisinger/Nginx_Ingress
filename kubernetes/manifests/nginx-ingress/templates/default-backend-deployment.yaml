@@ -8,13 +8,13 @@ metadata:
     chart: nginx-ingress-1.33.0
     component: "default-backend"
     heritage: Helm
-    release: RELEASE-NAME
-  name: RELEASE-NAME-nginx-ingress-default-backend
+    release: default
+  name: default-nginx-ingress-default-backend
 spec:
   selector:
     matchLabels:
       app: nginx-ingress
-      release: RELEASE-NAME
+      release: default
   replicas: 1
   revisionHistoryLimit: 10
   template:
@@ -22,7 +22,7 @@ spec:
       labels:
         app: nginx-ingress
         component: "default-backend"
-        release: RELEASE-NAME
+        release: default
     spec:
       containers:
         - name: nginx-ingress-default-backend
@@ -57,5 +57,5 @@ spec:
               protocol: TCP
           resources:
             {}
-      serviceAccountName: RELEASE-NAME-nginx-ingress-backend
+      serviceAccountName: default-nginx-ingress-backend
       terminationGracePeriodSeconds: 60

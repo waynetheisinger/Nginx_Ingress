@@ -8,15 +8,15 @@ metadata:
     chart: nginx-ingress-1.33.0
     component: "controller"
     heritage: Helm
-    release: RELEASE-NAME
-  name: RELEASE-NAME-nginx-ingress-controller
+    release: default
+  name: default-nginx-ingress-controller
   annotations:
     {}
 spec:
   selector:
     matchLabels:
       app: nginx-ingress
-      release: RELEASE-NAME
+      release: default
   replicas: 1
   revisionHistoryLimit: 10
   strategy:
@@ -27,7 +27,7 @@ spec:
       labels:
         app: nginx-ingress
         component: "controller"
-        release: RELEASE-NAME
+        release: default
     spec:
       dnsPolicy: ClusterFirst
       containers:
@@ -36,10 +36,10 @@ spec:
           imagePullPolicy: "IfNotPresent"
           args:
             - /nginx-ingress-controller
-            - --default-backend-service=default/RELEASE-NAME-nginx-ingress-default-backend
+            - --default-backend-service=default/default-nginx-ingress-default-backend
             - --election-id=ingress-controller-leader
             - --ingress-class=nginx
-            - --configmap=default/RELEASE-NAME-nginx-ingress-controller
+            - --configmap=default/default-nginx-ingress-controller
           securityContext:
             capabilities:
                 drop:
@@ -87,5 +87,5 @@ spec:
           resources:
             {}
       hostNetwork: false
-      serviceAccountName: RELEASE-NAME-nginx-ingress
+      serviceAccountName: default-nginx-ingress
       terminationGracePeriodSeconds: 60

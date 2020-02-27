@@ -7,13 +7,13 @@ metadata:
     app: nginx-ingress
     chart: nginx-ingress-1.33.0
     heritage: Helm
-    release: RELEASE-NAME
-  name: RELEASE-NAME-nginx-ingress
+    release: default
+  name: default-nginx-ingress
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: RELEASE-NAME-nginx-ingress
+  name: default-nginx-ingress
 subjects:
   - kind: ServiceAccount
-    name: RELEASE-NAME-nginx-ingress
+    name: default-nginx-ingress
     namespace: default

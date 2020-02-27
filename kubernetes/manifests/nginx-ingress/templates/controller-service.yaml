@@ -8,8 +8,8 @@ metadata:
     chart: nginx-ingress-1.33.0
     component: "controller"
     heritage: Helm
-    release: RELEASE-NAME
-  name: RELEASE-NAME-nginx-ingress-controller
+    release: default
+  name: default-nginx-ingress-controller
 spec:
   ports:
     - name: http
@@ -23,5 +23,5 @@ spec:
   selector:
     app: nginx-ingress
     component: "controller"
-    release: RELEASE-NAME
+    release: default
   type: "LoadBalancer"

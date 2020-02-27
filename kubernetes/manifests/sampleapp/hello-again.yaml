@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-again-deployment
+  labels:
+    app: hello-again
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-again
+  template:
+    metadata:
+      labels:
+        app: hello-again
+    spec:
+      containers:
+      - name: hello-again
+        image: tutum/hello-world
+        ports:
+        - containerPort: 80
