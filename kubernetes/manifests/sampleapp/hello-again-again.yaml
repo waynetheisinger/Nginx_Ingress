@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-again-again-deployment
+  namespace: acrossnamespace
+  labels:
+    app: hello-again-again
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-again-again
+  template:
+    metadata:
+      labels:
+        app: hello-again-again
+    spec:
+      containers:
+      - name: hello-again-again
+        image: karthequian/helloworld
+        ports:
+        - containerPort: 80
