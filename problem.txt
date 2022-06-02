@@ -1,0 +1,1 @@
+deployment.apps/nginx-ingress-ingress-nginx-controller configured (dry run)
